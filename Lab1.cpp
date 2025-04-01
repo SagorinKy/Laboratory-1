@@ -5,22 +5,24 @@ int main()
     try
     {
         // Load the image file
-        ClassBMP image("a.bmp");   // Изменено на правильное имя класса
+        ClassBMP image_one("a.bmp");   
 
         // Perform a clockwise rotation
         std::cout << "Rotating image clockwise by 90 degrees..." << std::endl;
-        image.RotateClockwise90();      // Изменены имена методов
-        image.SaveToFile("Rotated90Clockwise.bmp");
+        image_one.RotateClockwise90();      
+        image_one.SaveToFile("Rotated90Clockwise.bmp");
 
+        ClassBMP image_two("a.bmp");  
         // Perform a counter-clockwise rotation
         std::cout << "Rotating image counter-clockwise by 90 degrees..." << std::endl;
-        image.RotateCounterClockwise90();
-        image.SaveToFile("Rotated90CounterClockwise.bmp");
+        image_two.RotateCounterClockwise90();
+        image_two.SaveToFile("Rotated90CounterClockwise.bmp");
 
+        ClassBMP image_three("a.bmp");  
         // Apply Gaussian Blur effect
         std::cout << "Applying Gaussian Blur to the image..." << std::endl;
-        image.ApplyGaussianBlur();
-        image.SaveToFile("GaussianBlur.bmp");
+        image_three.ApplyGaussianBlur();
+        image_three.SaveToFile("GaussianBlur.bmp");
 
         std::cout << "Image processing completed successfully!" << std::endl;
     }

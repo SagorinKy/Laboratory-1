@@ -19,4 +19,4 @@ remove_objs:
 	rm -f *.o
 
 full_clean:
-	rm -f *.o *.bmp runLab1
+	rm -f *.o GaussianBlur.bmp Rotated90CounterClockwise.bmp Rotated90Clockwise.bmp runLab1

@@ -51,8 +51,8 @@ public:
     ColorHeader color_info;
     std::vector<uint8_t> pixel_data;
 
-    ClassBMP(const char* file_path);  // Конструктор теперь имеет правильное имя
-    void RotateClockwise90();         // Приведены к правильным именам методов
+    ClassBMP(const char* file_path); 
+    void RotateClockwise90();         
     void RotateCounterClockwise90();
     void ApplyGaussianBlur();
 
