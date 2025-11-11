@@ -1,7 +1,8 @@
 #include "ClassBMP.h"
 
-ClassBMP::ClassBMP(const char* file_path)   // Изменено имя конструктора
+ClassBMP::ClassBMP(const char* file_path)   
 {
+
     std::ifstream input_stream(file_path, std::ios_base::binary);
     if (!input_stream)
     {
@@ -26,6 +27,7 @@ ClassBMP::ClassBMP(const char* file_path)   // Изменено имя конс�
     input_stream.read(reinterpret_cast<char*>(pixel_data.data()), pixel_data.size());
 }
 
+
 void ClassBMP::RotateClockwise90()
 {
     int old_row_size = (image_info.image_width * (image_info.bits_per_pixel / 8) + 3) & ~3;
@@ -33,6 +35,7 @@ void ClassBMP::RotateClockwise90()
 
     std::vector<uint8_t> rotated_data(new_row_size * image_info.image_width);
 
+    #pragma omp parallel for  
     for (int y = 0; y < image_info.image_height; ++y)
     {
         for (int x = 0; x < image_info.image_width; ++x)
@@ -61,6 +64,7 @@ void ClassBMP::RotateCounterClockwise90()
 
     std::vector<uint8_t> rotated_data(new_row_size * image_info.image_width);
 
+    #pragma omp parallel for  
     for (int y = 0; y < image_info.image_height; ++y)
     {
         for (int x = 0; x < image_info.image_width; ++x)
@@ -96,6 +100,7 @@ void ClassBMP::ApplyGaussianBlur()
     std::vector<uint8_t> blurred_data(pixel_data.size());
     int channels = image_info.bits_per_pixel / 8;
 
+    #pragma omp parallel for  
     for (int y = 2; y < image_info.image_height - 2; y++)
     {
         for (int x = 2; x < image_info.image_width - 2; x++)

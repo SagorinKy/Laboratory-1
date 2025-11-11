@@ -1,5 +1,5 @@
 COMPILER = g++
-COMPILER_FLAGS = -g -Wall -pthread -I. -Werror -Wpedantic
+COMPILER_FLAGS = -fopenmp -g -Wall -pthread -I. -Werror -Wpedantic
 
 SRC_FILES = $(wildcard *.cpp)
 

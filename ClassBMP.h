@@ -7,6 +7,8 @@
 #include <stdexcept>
 #include <cstdint>
 
+#include <omp.h>
+
 #pragma pack(push, 1)
 struct FileHeader
 {
