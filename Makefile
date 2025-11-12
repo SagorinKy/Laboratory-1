@@ -1,11 +1,11 @@
 COMPILER = g++
 COMPILER_FLAGS = -fopenmp -g -Wall -pthread -I. -I./bmp_process -I./tests -Werror -Wpedantic
 
-SRC_FILES = bmp_process/ClassBMP.cpp   # Только исходники, которые не содержат main()
+SRC_FILES = bmp_process/ClassBMP.cpp  
 
 OBJ_LIST = $(SRC_FILES:.cpp=.o)
 
-all: runLab1 runTest
+all: runLab1 
 
 # Компиляция исходников классов (без Lab1.cpp)
 $(OBJ_LIST): %.o : %.cpp
